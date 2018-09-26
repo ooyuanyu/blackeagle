@@ -1,0 +1,44 @@
+{% extends 'Base.html' %}
+    {% block title %}电影{% endblock %}
+    {% block head_style %}
+        <link rel="stylesheet" type="text/css" href="/static/css/head_style.css">
+    {% endblock %}
+    {% block body_title %}
+        <div class="b_table">
+            {% for i in film_video %}
+                <ul >
+                    <li class="pic">
+                        <a href="{{i.video_detail_url}}">
+                        <img style="height: 100%;width: 100%" src="../{{ i.image }}">
+                        <div class="name">
+                        {{ i.video_name }}
+                        </div>
+                        </a>
+                    </li>
+                </ul>
+            {% endfor %}
+        </div>
+        <div class="pagination" style="position: absolute; top: 1000px ;left: 750px">
+            <span class="step-links">
+            {% if films.has_previous %}
+                <a href="?page={{ films.previous_page_number }}">上一页</a>
+            {% else %}
+                <a href="#">上一页</a>
+            {% endif %}
+
+            {% for page in films.paginator.page_range %}
+                {% if films.number == page %}
+
+                    <span class="active"><a href="?page={{ page }}" >{{ page }}</a></span>
+                    {% else %}
+                    <span><a href="?page={{ page }}">{{ page }}</a></span>
+                {% endif %}
+            {% endfor %}
+            {% if films.has_next %}
+                <a href="?page={{ films.next_page_number }}">下一页</a>
+            {% else %}
+                <a href="#">下一页</a>
+            {% endif %}
+            </span>
+        </div>
+    {% endblock %}

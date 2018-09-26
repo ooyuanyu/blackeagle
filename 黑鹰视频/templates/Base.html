@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Base{% endblock %}</title>
+    <script src="http://libs.baidu.com/html5shiv/3.7/html5shiv.min.js"></script>
+
+    {% block head_style %}{% endblock %}
+    <style>
+        table{
+            width:1300px;
+            height:100px ;
+            margin:auto;
+            position: absolute;
+            left: 300px;
+        }
+        td{
+            text-align: center;
+            border-bottom: #1da7ee solid 1px
+        }
+        a{
+            text-decoration: none;
+            color: #1F2429;
+        }
+        a:hover{
+            color:#7aba7b;
+            text-shadow: 1px 1px 1px #b8e76f;
+        }
+
+    </style>
+</head>
+<body>
+     <div style="text-align: right">
+        {% if request.session.user_name %}
+            <a style='font-family:楷体;'>{{ welcome}} {{ request.session.user_name }} </a>
+            <a href="/userinfo/logout/">注销</a>
+            <a href="/payment/ali_pay/">充值</a>
+        {% else %}
+            <a href="/userinfo/login/">登录</a>
+            <a href="/userinfo/login/#toregister">注册</a>
+        {% endif %}
+    </div>
+    <a href="/">
+        <h1 style="text-align: left; font-size: 20px; position: absolute; left: 80px; top: 40px; color: #1F2429; text-shadow: none" >黑鹰视频</h1>
+    </a>
+    <table>
+        <tr>
+            <td><a href="/">首页</a></td>
+            <td><a href="/videoinfo/variety/">综艺</a></td>
+            <td><a href="/videoinfo/film/">电影</a></td>
+            <td><a href="/videoinfo/comic">动漫</a></td>
+            <td><a href="/videoinfo/children">少儿</a></td>
+            <td><a href="/videoinfo/music">音乐</a></td>
+            <td><a href="/videoinfo/american_tv">美剧</a></td>
+            <td><a href="/videoinfo/korean_drama">韩剧</a></td>
+            <td><a href="/videoinfo/sports">体育</a></td>
+            <td><a href="/videoinfo/game/">游戏</a></td>
+            <td><a href="/videoinfo/life/">生活</a></td>
+            <td><a href="/videoinfo/science_and_technology">科技</a></td>
+            <td><a href="/videoinfo/travel">旅游</a></td>
+        </tr>
+    </table>
+        <div style="position:absolute;left: 1350px; text-align: right;top: 130px;">
+            <form action="/search/searchresult/" method="POST">
+                {% csrf_token %}
+            <input style="height: 22px" type="text" name="searchinfo" placeholder="">
+            <button type="submit">查找</button>
+            </form>
+            {% block message %}{% endblock %}
+        </div>
+    {% block body_title %}{% endblock %}
+    {% block script %}{% endblock %}
+</body>
+<footer style="position: absolute;bottom: -150px; right: 50%">
+  <p>Posted by: &copy;xmd</p>
+</footer>
+</html>
