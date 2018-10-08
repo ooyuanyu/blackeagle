@@ -33,7 +33,7 @@
      <div style="text-align: right">
         {% if request.session.user_name %}
             <a style='font-family:楷体;'>{{ welcome}} {{ request.session.user_name }} </a>
-            <a href="/userinfo/logout/">注销</a>
+            <a href="{% url 'Logout' %}">注销</a>
             <a href="/payment/ali_pay/">充值</a>
         {% else %}
             <a href="/userinfo/login/">登录</a>
@@ -70,8 +70,9 @@
         </div>
     {% block body_title %}{% endblock %}
     {% block script %}{% endblock %}
+    <div style="position: relative; bottom: 0;top: 50px; text-align: center">
+      <p>Posted by: &copy;xmd</p>
+    </div>
 </body>
-<footer style="position: absolute;bottom: -150px; right: 50%">
-  <p>Posted by: &copy;xmd</p>
-</footer>
+
 </html>

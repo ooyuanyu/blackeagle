@@ -2,7 +2,7 @@
     border-spacing: 10px;
     width: 900px;
     height: 800px;
-    position: absolute;
+    position: relative;
     left: 400px;
     top: 150px;
 }

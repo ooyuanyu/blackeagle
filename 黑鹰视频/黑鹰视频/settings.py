@@ -126,6 +126,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 # 支付宝配置参数
 ALIPAY_APPID = "2018090561269537"
 ALIPAY_URL = "https://openapi.alipay.com/gateway.do"

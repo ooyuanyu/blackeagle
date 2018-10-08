@@ -15,6 +15,7 @@ class VideoInfo(models.Model):
         ("1", "综艺"), ("2", "电影"), ("3", "动漫"), ("4", "少儿"), ("5", "音乐"), ("6", "美剧"), ("7", "韩剧"), ("8", "体育"),
         ("9", "游戏"), ("10", "生活"), ("11", "科技"), ("12", "旅游")
     ), max_length=10)
+    is_banner =  models.BooleanField(default=False,verbose_name="是否轮播")
     click_nums = models.IntegerField(default=0, verbose_name="点击数")
     add_time = models.DateTimeField(default=datetime.now, verbose_name="添加时间")
     fav_nums = models.IntegerField(default=0, verbose_name="收藏人数")

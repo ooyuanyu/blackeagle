@@ -3,46 +3,69 @@
 {% block head_style %}
     <link rel="stylesheet" href="/static/css/Cooldog.css">
     <link rel="stylesheet" href="/static/css/iconfont.css">
+    <style>
+        .b_title>div{
+            top:50px;
+            width: 1300px;
+            height: 200px;
+            position: relative;
+            left: 100px;
+        }
+    </style>
 {% endblock %}
 {% block body_title %}
     <div class="Cooldog_container">
     <div class="Cooldog_content">
         <ul>
+            {% for i1 in banner1 %}
             <li class="p1">
-                <a href="#">
-                    <img src="/static/images/1.png" alt="">
+                <a href="{{ i1.url }}">
+                    <img src="/{{ i1.image }}" alt="">
                 </a>
             </li>
+            {% endfor %}
+            {% for i in banner2 %}
             <li class="p2">
-                <a href="#">
-                    <img src="/static/images/2.png" alt="">
+                <a href="{{ i.url }}">
+                    <img src="/{{ i.image }}" alt="">
                 </a>
             </li>
+            {% endfor %}
+            {% for i in banner3 %}
             <li class="p3">
-                <a href="#">
-                    <img src="/static/images/3.png" alt="">
+                <a href="{{ i.url }}">
+                    <img src="/{{ i.image }}" alt="">
                 </a>
             </li>
+            {% endfor %}
+            {% for i in banner4 %}
             <li class="p4">
-                <a href="#">
-                    <img src="/static/images/4.png" alt="">
+                <a href="{{ i.url }}">
+                    <img src="/{{ i.image }}" alt="">
                 </a>
             </li>
+            {% endfor %}
+            {% for i in banner5 %}
             <li class="p5">
-                <a href="#">
-                    <img src="/static/images/5.png" alt="">
+                <a href="{{ i.url }}">
+                    <img src="/{{ i.image }}" alt="">
                 </a>
             </li>
-            <li class="p5">
-                <a href="#">
-                    <img src="/static/images/6.png" alt="">
+            {% endfor %}
+        {% for i in banner6 %}
+            <li class="p6">
+                <a href="{{i.url }}">
+                    <img src="/{{ i.image }}" alt="">
                 </a>
             </li>
-            <li class="p5">
-                <a href="#">
-                    <img src="/static/images/7.png" alt="">
+        {% endfor %}
+        {% for i in banner7 %}
+            <li class="p7">
+                <a href="{{ i.url }}">
+                    <img src="/{{ i.image }}" alt="">
                 </a>
             </li>
+        {% endfor %}
         </ul>
     </div>
     <a href="javascript:;" class="btn_left">
@@ -61,14 +84,44 @@
         <a href="javascript:;"></a>
     </div>
 </div>
-<div>
-    <div>
+<div class="b_title">
+    <div >
         <a href="/videoinfo/variety/"><h3>综艺</h3></a>
     </div>
+
     <div>
-
+        <a href="/videoinfo/film/"><h3>电影</h3></a>
     </div>
-
+    <div>
+        <a href="/videoinfo/comic/"><h3>动漫</h3></a>
+    </div>
+    <div>
+        <a href="/videoinfo/children/"><h3>少儿</h3></a>
+    </div>
+    <div>
+        <a href="/videoinfo/music/"><h3>音乐</h3></a>
+    </div>
+    <div>
+        <a href="/videoinfo/american_tv/"><h3>美剧</h3></a>
+    </div>
+    <div>
+        <a href="/videoinfo/korean_drama/"><h3>韩剧</h3></a>
+    </div>
+    <div>
+        <a href="/videoinfo/sports/"><h3>体育</h3></a>
+    </div>
+    <div>
+        <a href="/videoinfo/game/"><h3>游戏</h3></a>
+    </div>
+    <div>
+        <a href="/videoinfo/life/"><h3>生活</h3></a>
+    </div>
+    <div>
+        <a href="/videoinfo/science_and_technology/"><h3>科技</h3></a>
+    </div>
+    <div>
+        <a href="/videoinfo/travel/"><h3>旅游</h3></a>
+    </div>
 </div>
 {% endblock %}
 {% block script %}

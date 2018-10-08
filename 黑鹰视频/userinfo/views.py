@@ -2,13 +2,26 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.core.exceptions import ObjectDoesNotExist
 from .models import *
+from django.contrib.auth import logout
+
 import logging
 
 
 # Create your views here.
 
-def index(request):
-    return render(request, 'index.html')
+# def index(request):
+#     return render(request, 'index.html')
+def Banner_(request):
+    banner1 = Banner.objects.filter(index='1')
+    print(banner1)
+    banner2 = Banner.objects.filter(index='2')
+    banner3 = Banner.objects.filter(index='3')
+    banner4 = Banner.objects.filter(index='4')
+    banner5 = Banner.objects.filter(index='5')
+    banner6 = Banner.objects.filter(index='6')
+    banner7 = Banner.objects.filter(index='7')
+    # videoinfo = VideoInfo.objects.filter(is_banner=False)[:7]
+    return render(request, 'index.html', locals())
 
 
 def login_(request):
@@ -57,6 +70,11 @@ def registerin(request):
         return render(request, 'login.html')
 
 
-def logout(request):
-    del request.session['user_name']
-    return HttpResponseRedirect('/')
+def Logout(request):
+    # del request.session['user_name']
+    # return HttpResponseRedirect('/')
+    logout(request)
+    from django.urls import reverse
+    return HttpResponseRedirect(reverse('index'))
+
+

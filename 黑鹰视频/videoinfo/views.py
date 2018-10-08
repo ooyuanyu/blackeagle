@@ -2,7 +2,7 @@ from django.shortcuts import render, HttpResponse
 from .models import VideoInfo
 from django.http import HttpResponseRedirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-
+from userinfo.models import Banner
 # Create your views here.
 
 video_ = VideoInfo()
@@ -22,6 +22,8 @@ def video(request):
 
         video_ = VideoInfo.objects.get(id=video_id)
         return render(request, "Video.html", {'message': video_})
+
+
 
 
 """综艺"""
